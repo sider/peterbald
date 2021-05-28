@@ -1,0 +1,21 @@
+rules:
+  - id: sider.secrets.aws.account_id
+    pattern:
+      regexp: '\b[0-9]{12}\b'
+    message: |
+      Beware of AWS account ID leaks.
+
+      AWS account ID is a credential. Once this leaks, an attacker may identify essential information
+      on your AWS account, such as roles, users, etc.
+
+      See also:
+      * https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html
+      * https://rhinosecuritylabs.com/aws/assume-worst-aws-assume-role-enumeration/
+    glob:
+      - "**/*"
+    fail:
+      - "https://123456789012.signin.aws.amazon.com/console/"
+      - "arn:aws:iam::123456789012:user/*"
+    pass:
+      - "https://signin.aws.amazon.com/console/"
+      - "arn:aws:iam::{account_id}:user/*"
