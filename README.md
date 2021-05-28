@@ -11,3 +11,9 @@ Run the following command to set up:
 ```console
 $ npm ci
 ```
+
+Additionally, if you add or edit [Goodcheck](https://github.com/sider/goodcheck) rules, you may need to install the `goodcheck` gem like this:
+
+```console
+$ gem install goodcheck
+```
