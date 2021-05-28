@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@arkweid/lefthook": "^0.7.5",
+    "prettier": "^2.3.0"
+  },
+  "scripts": {
+    "postinstall": "lefthook install",
+    "prettier:write": "prettier --write"
+  }
+}

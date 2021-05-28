@@ -1,0 +1,6 @@
+pre-commit:
+  parallel: true
+  commands:
+    prettier:
+      glob: "*.{md,json,yml}"
+      run: npm run prettier:write -- {staged_files}
