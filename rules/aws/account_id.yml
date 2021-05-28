@@ -14,6 +14,7 @@
     * https://rhinosecuritylabs.com/aws/assume-worst-aws-assume-role-enumeration/
   justification:
     - When this is not an AWS account ID.
+    - When this is not a problem if it leaks. (such as test data)
   fail:
     - "https://123456789012.signin.aws.amazon.com/console/"
     - "arn:aws:iam::123456789012:user/*"
