@@ -1,0 +1,22 @@
+- id: sider.secrets.aws.access_key_id
+  pattern:
+    # https://github.com/awslabs/git-secrets/blob/80230afa8c8bdeac766a0fece36f95ffaa0be778/git-secrets#L238
+    regexp: |-
+      (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+  glob:
+    - "**/*"
+  message: |
+    It is dangerous to embed AWS access key ID into your code.
+
+    AWS access key ID is an important credential that allows you to use AWS programmatically.
+    Once this leaks, an attacker can access and operate your AWS resources.
+
+    See also:
+    * https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html
+  justification:
+    - When this is not an AWS access key ID.
+    - When this is not a problem if it leaks. (such as test data)
+  fail:
+    - "AKIA1234567890ABCDEF"
+  pass:
+    - "WXYZ1234567890ABCDEF"
