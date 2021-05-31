@@ -1,6 +1,7 @@
 - id: sider.secrets.aws.account_id
   pattern:
-    regexp: '(?<!\d\.)\b\d{12}\b(?!\.\d)'
+    regexp: |-
+      (?<!\d\.)\b\d{12}\b(?!\.\d)
   glob:
     - "**/*"
   message: |
