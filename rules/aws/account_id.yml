@@ -1,6 +1,6 @@
 - id: sider.secrets.aws.account_id
   pattern:
-    regexp: '\b[0-9]{12}\b'
+    regexp: '(?<!\d\.)\b\d{12}\b(?!\.\d)'
   glob:
     - "**/*"
   message: |
@@ -25,3 +25,5 @@
     - "AWS_ACCOUNT_ID = ENV['AWS_ACCOUNT_ID']"
     - "1234567890123"
     - "12345678901"
+    - "0.123456789012"
+    - "123456789012.0"
