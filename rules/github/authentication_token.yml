@@ -1,0 +1,26 @@
+- id: sider.secrets.github.authentication_token
+  pattern:
+    regexp: |-
+      (?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9_]{20,255}
+  glob:
+    - "**/*"
+  message: |
+    It is dangerous to embed a GitHub authentication token into your code.
+
+    GitHub authentication tokens allow an attacker to steal critical data from your repository.
+    Such stolen data may include your database password, customer information, etc.
+
+    See also:
+    * https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/
+    * https://github.blog/2021-04-05-behind-githubs-new-authentication-token-formats/
+  justification:
+    - When this is not a GitHub authentication token.
+    - When this leakage is not a problem. (such as test data)
+  fail:
+    - "ghp_1234567890ABCDEFabcdef"
+    - "gho_1234567890ABCDEFabcdef"
+    - "ghu_1234567890ABCDEFabcdef"
+    - "ghs_1234567890ABCDEFabcdef"
+    - "ghr_1234567890ABCDEFabcdef"
+  pass:
+    - "abc_1234567890ABCDEFabcdef"
