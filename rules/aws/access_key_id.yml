@@ -1,6 +1,5 @@
 - id: sider.secrets.aws.access_key_id
   pattern:
-    # https://github.com/awslabs/git-secrets/blob/80230afa8c8bdeac766a0fece36f95ffaa0be778/git-secrets#L238
     regexp: |-
       (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
   glob:
