@@ -5,7 +5,7 @@
   glob:
     - "**/*"
   message: |
-    It is dangerous to embed AWS access key ID into your code.
+    It is dangerous to embed an AWS access key ID into your code.
 
     AWS access key ID is an important credential that allows you to use AWS programmatically.
     Once this leaks, an attacker can access and operate your AWS resources.
@@ -14,7 +14,7 @@
     * https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html
   justification:
     - When this is not an AWS access key ID.
-    - When this is not a problem if it leaks. (such as test data)
+    - When this leakage is not a problem. (such as test data)
   fail:
     - "AKIA1234567890ABCDEF"
   pass:
