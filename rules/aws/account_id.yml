@@ -7,10 +7,11 @@
   message: |
     Beware of AWS account ID leaks.
 
-    AWS account ID is a credential. Once this leaks, an attacker may identify essential information
+    AWS account ID is a credential (12-digit number). Once this leaks, an attacker may identify essential information
     on your AWS account, such as roles, users, etc.
 
     See also:
+    * https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html
     * https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html
     * https://rhinosecuritylabs.com/aws/assume-worst-aws-assume-role-enumeration/
   justification:
