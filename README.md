@@ -2,7 +2,11 @@
 
 Secret scanning by Sider (codename: Peterbald)
 
-## Development
+## Developers guide
+
+The following sections are for developers.
+
+### Setup
 
 This project requires Node.js (the latest version if possible).
 
@@ -17,3 +21,7 @@ Additionally, if you add or edit [Goodcheck](https://github.com/sider/goodcheck)
 ```console
 $ gem install goodcheck
 ```
+
+### Release
+
+[Create a new release](https://github.com/sider/peterbald/releases/new) on GitHub.
