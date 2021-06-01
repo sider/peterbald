@@ -8,15 +8,15 @@ The following sections are for developers.
 
 ### Setup
 
-This project requires Node.js (the latest version if possible).
+This project requires [Node.js](https://nodejs.org/) (the latest version as possible).
 
-Run the following command to set up:
+Run to set up:
 
 ```console
 $ npm ci
 ```
 
-Additionally, if you add or edit [Goodcheck](https://github.com/sider/goodcheck) rules, you may need to install the `goodcheck` gem like this:
+If you want to develop [Goodcheck](https://github.com/sider/goodcheck) rules, install the `goodcheck` gem:
 
 ```console
 $ gem install goodcheck
