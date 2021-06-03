@@ -1,7 +1,7 @@
 {
   "private": true,
   "devDependencies": {
-    "@arkweid/lefthook": "^0.7.5",
+    "@arkweid/lefthook": "^0.7.6",
     "prettier": "^2.3.0"
   },
   "scripts": {
