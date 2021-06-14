@@ -3,7 +3,7 @@ import:
 
 severity:
   allow: [warn]
-  required: false
+  required: true
 
 exclude:
   - "**/node_modules/**"
