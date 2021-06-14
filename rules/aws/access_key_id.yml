@@ -2,8 +2,9 @@
   pattern:
     regexp: |-
       (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+  severity: warn
   message: |
-    It is dangerous to embed an AWS access key ID into your code.
+    It may be dangerous to commit the AWS access key ID.
 
     AWS access key ID is an important credential that allows you to use AWS programmatically.
     Once this leaks, an attacker can access and operate your AWS resources.

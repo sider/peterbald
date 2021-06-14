@@ -2,8 +2,9 @@
   pattern:
     regexp: |-
       (?<!(?:\d\.|.[-_]))\b\d{12}\b(?!(?:(\.\d|[-_].)))
+  severity: warn
   message: |
-    Beware that an AWS account ID leaks.
+    It may be dangerous to commit the AWS account ID.
 
     AWS account ID is a credential (12-digit number). Once this leaks, an attacker may identify essential information
     on your AWS account, such as roles, users, etc.
