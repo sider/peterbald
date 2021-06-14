@@ -3,6 +3,7 @@
     # https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/
     regexp: |-
       (?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9_]{20,255}
+  severity: warn
   message: |
     It may be dangerous to commit the GitHub authentication token.
 
