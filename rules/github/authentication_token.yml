@@ -2,8 +2,6 @@
   pattern:
     regexp: |-
       (?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9_]{20,255}
-  glob:
-    - "**/*"
   message: |
     It is dangerous to embed a GitHub authentication token into your code.
 
@@ -17,10 +15,24 @@
     - When this is not a GitHub authentication token.
     - When this leakage is not a problem. (such as test data)
   fail:
-    - "ghp_1234567890ABCDEFabcdef"
-    - "gho_1234567890ABCDEFabcdef"
-    - "ghu_1234567890ABCDEFabcdef"
-    - "ghs_1234567890ABCDEFabcdef"
-    - "ghr_1234567890ABCDEFabcdef"
+    - |-
+      ghp_1234567890ABCDEFabcdef
+    - |-
+      gho_1234567890ABCDEFabcdef
+    - |-
+      ghu_1234567890ABCDEFabcdef
+    - |-
+      ghs_1234567890ABCDEFabcdef
+    - |-
+      ghr_1234567890ABCDEFabcdef
+    - |-
+      "ghr_1234567890ABCDEFabcdef"
+    - |-
+      'ghr_1234567890ABCDEFabcdef'
+    - |-
+      token=ghr_1234567890ABCDEFabcdef
+    - |-
+      token = 'ghr_1234567890ABCDEFabcdef'
   pass:
-    - "abc_1234567890ABCDEFabcdef"
+    - |-
+      abc_1234567890ABCDEFabcdef

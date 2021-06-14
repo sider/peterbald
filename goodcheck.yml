@@ -1,2 +1,5 @@
 import:
   - "./rules/**/*.yml"
+
+exclude:
+  - "**/node_modules/**"
