@@ -2,8 +2,6 @@
   pattern:
     regexp: |-
       (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
-  glob:
-    - "**/*"
   message: |
     It is dangerous to embed an AWS access key ID into your code.
 
@@ -16,6 +14,8 @@
     - When this is not an AWS access key ID.
     - When this leakage is not a problem. (such as test data)
   fail:
-    - "AKIA1234567890ABCDEF"
+    - |-
+      AKIA1234567890ABCDEF
   pass:
-    - "WXYZ1234567890ABCDEF"
+    - |-
+      WXYZ1234567890ABCDEF

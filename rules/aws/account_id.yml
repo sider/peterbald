@@ -2,8 +2,6 @@
   pattern:
     regexp: |-
       (?<!(?:\d\.|.[-_]))\b\d{12}\b(?!(?:(\.\d|[-_].)))
-  glob:
-    - "**/*"
   message: |
     Beware that an AWS account ID leaks.
 
@@ -18,18 +16,34 @@
     - When this is not an AWS account ID.
     - When this leakage is not a problem. (such as test data)
   fail:
-    - "https://123456789012.signin.aws.amazon.com/console/"
-    - "arn:aws:iam::123456789012:user/*"
-    - "AWS_ACCOUNT_ID = '123456789012'"
+    - |-
+      https://123456789012.signin.aws.amazon.com/console/
+    - |-
+      arn:aws:iam::123456789012:user/*
+    - |-
+      AWS_ACCOUNT_ID = '123456789012'
+    - |-
+      AWS_ACCOUNT_ID=123456789012
   pass:
-    - "https://signin.aws.amazon.com/console/"
-    - "arn:aws:iam::{account_id}:user/*"
-    - "AWS_ACCOUNT_ID = ENV['AWS_ACCOUNT_ID']"
-    - "1234567890123"
-    - "12345678901"
-    - "0.123456789012"
-    - "123456789012.0"
-    - "abc-123456789012"
-    - "abc_123456789012"
-    - "123456789012-abc"
-    - "123456789012_abc"
+    - |-
+      https://signin.aws.amazon.com/console/
+    - |-
+      arn:aws:iam::{account_id}:user/*
+    - |-
+      AWS_ACCOUNT_ID = ENV['AWS_ACCOUNT_ID']
+    - |-
+      1234567890123
+    - |-
+      12345678901
+    - |-
+      0.123456789012
+    - |-
+      123456789012.0
+    - |-
+      abc-123456789012
+    - |-
+      abc_123456789012
+    - |-
+      123456789012-abc
+    - |-
+      123456789012_abc
