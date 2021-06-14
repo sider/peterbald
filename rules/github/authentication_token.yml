@@ -1,16 +1,17 @@
 - id: sider.secrets.github.authentication_token
   pattern:
+    # https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/
     regexp: |-
       (?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9_]{20,255}
+  severity: warn
   message: |
-    It is dangerous to embed a GitHub authentication token into your code.
+    It may be dangerous to commit the GitHub authentication token.
 
-    GitHub authentication tokens allow an attacker to steal critical data from your repository.
-    Such stolen data may include your database password, customer information, etc.
+    Using a leaked GitHub token, an attacker can steal important information from your repository,
+    for example, source code, database passwords, customer information, etc.
 
     See also:
-    * https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/
-    * https://github.blog/2021-04-05-behind-githubs-new-authentication-token-formats/
+    * https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure
   justification:
     - When this is not a GitHub authentication token.
     - When this leakage is not a problem. (such as test data)

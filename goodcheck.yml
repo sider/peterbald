@@ -1,5 +1,9 @@
 import:
   - "./rules/**/*.yml"
 
+severity:
+  allow: [warn]
+  required: false
+
 exclude:
   - "**/node_modules/**"

@@ -1,0 +1,8 @@
+linter:
+  goodcheck:
+    dependencies:
+      # TODO: Remove it later.
+      - name: goodcheck
+        git:
+          repo: https://github.com/sider/goodcheck.git
+          branch: master
