@@ -1,7 +1,7 @@
 - id: sider.secrets.aws.access_key_id
   pattern:
     regexp: |-
-      (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+      (?:A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
   severity: warn
   message: |
     It may be dangerous to commit the AWS access key ID.
@@ -17,6 +17,10 @@
   fail:
     - |-
       AKIA1234567890ABCDEF
+    - |-
+      ACCESS_KEY_ID=AKIA1234567890ABCDEF
+    - |-
+      ACCESS_KEY_ID = "AKIA1234567890ABCDEF"
   pass:
     - |-
       WXYZ1234567890ABCDEF
