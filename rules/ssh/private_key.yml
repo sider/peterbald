@@ -1,0 +1,20 @@
+- id: sider.secrets.ssh.private_key
+  pattern:
+    regexp: |-
+      -----BEGIN (?:DSA|RSA|EC|PGP|OPENSSH)?\s?PRIVATE KEY(?:\sBLOCK)?-----
+  severity: warn
+  message: |
+    It may be dangerous to commit the SSH private key.
+  justification:
+    - When this is not a SSH private key.
+    - When this leakage is not a problem. (such as test data)
+  fail:
+    - |-
+      -----BEGIN PRIVATE KEY-----
+    - |-
+      -----BEGIN RSA PRIVATE KEY-----
+    - |-
+      -----BEGIN RSA PRIVATE KEY BLOCK-----
+  pass:
+    - |-
+      -----BEGIN PUBLIC KEY-----
