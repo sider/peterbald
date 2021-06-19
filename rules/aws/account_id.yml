@@ -2,7 +2,7 @@
   pattern:
     regexp: |-
       (?<!(?:\d\.|.[-_]))\b\d{12}\b(?!(?:(\.\d|[-_].)))
-  severity: warn
+  severity: warning
   message: |
     It may be dangerous to commit the AWS account ID.
 
