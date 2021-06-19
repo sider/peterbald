@@ -2,7 +2,7 @@ import:
   - "./rules/**/*.yml"
 
 severity:
-  allow: [warn]
+  allow: [warning]
   required: true
 
 exclude:

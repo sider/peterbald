@@ -2,7 +2,7 @@
   pattern:
     regexp: |-
       -----BEGIN (?:DSA|RSA|EC|PGP|OPENSSH)?\s?PRIVATE KEY(?:\sBLOCK)?-----
-  severity: warn
+  severity: warning
   message: |
     It may be dangerous to commit the SSH private key.
   justification:
