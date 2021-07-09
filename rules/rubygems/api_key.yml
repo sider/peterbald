@@ -1,7 +1,7 @@
 - id: sider.secrets.rubygems.api_key
   pattern:
     regexp: |-
-      \brubygems_[A-Za-z0-9]{48,255}\b
+      \brubygems_[A-Za-z0-9]{48,255}
   severity: warning
   message: |
     It may be dangerous to commit the RubyGems API key.
