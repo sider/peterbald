@@ -1,0 +1,29 @@
+- id: sider.secrets.rubygems.api_key
+  pattern:
+    regexp: |-
+      \brubygems_[A-Za-z0-9]{48,255}
+  severity: warning
+  message: |
+    It may be dangerous to commit the RubyGems API key.
+
+    Using a leaked API key, an attacker can embed malicious code to your gems and publish them.
+
+    See also:
+    * https://guides.rubygems.org/api-key-scopes/
+  justification:
+    - When this is not a RubyGems API key.
+    - When this leakage is not a problem. (such as test data)
+  fail:
+    - |-
+      rubygems_cec9db9373ea171daaaa0bf2337edce187f09558cb19c1b2
+    - |-
+      key=rubygems_cec9db9373ea171daaaa0bf2337edce187f09558cb19c1b2
+    - |-
+      key: rubygems_cec9db9373ea171daaaa0bf2337edce187f09558cb19c1b2
+    - |-
+      "rubygems_cec9db9373ea171daaaa0bf2337edce187f09558cb19c1b2"
+  pass:
+    - |-
+      rubygems_123
+    - |-
+      123_rubygems
