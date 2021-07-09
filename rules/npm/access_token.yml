@@ -1,0 +1,22 @@
+- id: sider.secrets.npm.access_token
+  pattern:
+    regexp: |-
+      _authToken=[A-Za-z0-9\-]{20,255}
+  glob: "**/.npmrc"
+  severity: warning
+  message: |
+    It may be dangerous to commit the npm access token.
+
+    Using a leaked token, an attacker can embed malicious code to your packages and publish them.
+
+    See also:
+    * https://docs.npmjs.com/about-access-tokens
+  justification:
+    - When this is not a npm access token.
+    - When this leakage is not a problem. (such as test data)
+  fail:
+    - |-
+      //registry.npmjs.org/:_authToken=11111111-AAAA-BBBB-CCCC-222222222222
+  pass:
+    - |-
+      //registry.npmjs.org/:_authToken=${NPM_TOKEN}
