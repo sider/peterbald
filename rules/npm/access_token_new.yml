@@ -1,0 +1,24 @@
+- id: sider.secrets.npm.access_token_new
+  pattern:
+    regexp: |-
+      npm_[A-Za-z0-9]{36}
+  severity: warning
+  message: |
+    It may be dangerous to commit the npm access token.
+
+    Using a leaked token, an attacker can embed malicious code to your packages and publish them.
+
+    See also:
+    * https://docs.npmjs.com/about-access-tokens
+    * https://github.blog/2021-09-23-announcing-npms-new-access-token-format/
+  justification:
+    - When this is not a npm access token.
+    - When this leakage is not a problem. (such as test data)
+  fail:
+    - |-
+      //registry.npmjs.org/:_authToken=npm_abcdefghijklmnopqrstuvwxyzABCDEFGHIJ
+    - |-
+      NPM_TOKEN=npm_OmID4mVUvMsyZNQG2VZ1H08RZzkR27gpJl0w
+  pass:
+    - |-
+      //registry.npmjs.org/:_authToken=${NPM_TOKEN}
