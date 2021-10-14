@@ -1,7 +1,7 @@
 - id: sider.secrets.pypi.api_token
   pattern:
     regexp: |-
-      pypi-AgEIcHlwaS5vcmc[A-Za-z0-9-_]{70,}
+      pypi-AgEIcHlwaS5vcmc[A-Za-z0-9\-_]{70,}
   severity: warning
   message: |
     It may be dangerous to commit the pypi API token.
