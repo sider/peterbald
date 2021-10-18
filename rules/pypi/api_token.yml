@@ -1,0 +1,25 @@
+- id: sider.secrets.pypi.api_token
+  pattern:
+    regexp: |-
+      pypi-AgEIcHlwaS5vcmc[A-Za-z0-9\-_]{70,}
+  severity: warning
+  message: |
+    It may be dangerous to commit the pypi API token.
+
+    Using a leaked token, an attacker can embed malicious code to your packages and publish them.
+
+    See also:
+    * https://pypi.org/help/#apitoken
+  justification:
+    - When this is not a pypi API token.
+    - When this leakage is not a problem. (such as test data)
+  fail:
+    - "password = pypi-AgEIcHlwaS5vcmcCJDhmYjdlYTc4LWYxOTYtNGIwYi1hMTg4LWE3OTg3NzFmNjRmYQACOXsicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJzaGVsbGN1dCJdfSwgInZlcnNpb24iOiAxfQAABiAPS5RTH7xLCtKLNUUF0-8dWK-1OpHT4MPT0cNGBU33Jg"
+    - "password=pypi-AgEIcHlwaS5vcmcCJDk0YWRiMzI0LTlmZGQtNGEzZC04Zjk5LWIyNTgwYzQ2MzY5NgACPHsicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJhbmltZXBsYW5ldCJdfSwgInZlcnNpb24iOiAxfQAABiB5Vuo-n3-XRDjiJaIYnI9eQhCVphrO0KNBWgZyL9z6rw"
+    - "pypi-AgEIcHlwaS5vcmcCJDZlNzQ1NDBlLTg3MTQtNGE0ZC1hMGRmLWRjNWE5YzQ0ZWZkMgACPHsicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJhbmltZXBsYW5ldCJdfSwgInZlcnNpb24iOiAxfQAABiDqHLNJTChRaAEtS6fnNyAX6u8hTxQF6xjop41Mxl8JQg"
+    - "password: pypi-AgEIcHlwaS5vcmcCJDZlNzQ1NDBlLTg3MTQtNGE0ZC1hMGRmLWRjNWE5YzQ0ZWZkMgACPHsicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJhbmltZXBsYW5ldCJdfSwgInZlcnNpb24iOiAxfQAABiDqHLNJTChRaAEtS6fnNyAX6u8hTxQF6xjop41Mxl8JQg"
+    - "TWINE_PASSWORD=pypi-AgEIcHlwaS5vcmcCJDZlNzQ1NDBlLTg3MTQtNGE0ZC1hMGRmLWRjNWE5YzQ0ZWZkMgACPHsicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJhbmltZXBsYW5ldCJdfSwgInZlcnNpb24iOiAxfQAABiDqHLNJTChRaAEtS6fnNyAX6u8hTxQF6xjop41Mxl8JQg"
+    - "TWINE_PASSWORD: pypi-AgEIcHlwaS5vcmcCJDZlNzQ1NDBlLTg3MTQtNGE0ZC1hMGRmLWRjNWE5YzQ0ZWZkMgACPHsicGVybWlzc2lvbnMiOiB7InByb2plY3RzIjogWyJhbmltZXBsYW5ldCJdfSwgInZlcnNpb24iOiAxfQAABiDqHLNJTChRaAEtS6fnNyAX6u8hTxQF6xjop41Mxl8JQg"
+  pass:
+    - |-
+      TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
