@@ -2,7 +2,7 @@
   "private": true,
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.7",
-    "prettier": "^2.4.1"
+    "prettier": "^2.5.1"
   },
   "scripts": {
     "postinstall": "lefthook install",
